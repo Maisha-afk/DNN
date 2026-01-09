@@ -27,9 +27,9 @@ val_pairs   = list_pairs("Validation")
 test_pairs  = list_pairs("Test")
 
 
-train_pairs = train_pairs[:100]
-val_pairs = val_pairs[:100]
-test_pairs = test_pairs[:100]
+#train_pairs = train_pairs[:100]
+#val_pairs = val_pairs[:100]
+#test_pairs = test_pairs[:100]
 
 if __name__ == "__main__":
     # Quick dataset sanity checks when run as a script.

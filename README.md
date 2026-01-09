@@ -1,4 +1,3 @@
-# DNN
 # Beamforming Speech Enhancement
 
 Multi-channel speech enhancement with a CNN mask estimator and MVDR beamforming.

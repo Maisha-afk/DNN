@@ -57,7 +57,13 @@ val_ds = PairDataset(val_pairs, max_len_sec=MAX_LEN_SEC)
 train_dl = DataLoader(train_ds, batch_size=4, shuffle=True, num_workers=2, drop_last=True)
 val_dl = DataLoader(val_ds, batch_size=4, shuffle=False, num_workers=2, drop_last=False)
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+if torch.cuda.is_available():
+    device = torch.device("cuda:0")
+    print("Device: cuda:0")
+    print("GPU:", torch.cuda.get_device_name(0))
+else:
+    device = torch.device("cpu")
+    print("Device: cpu")
 net = MaskNet().to(device)
 opt = TO.Adam(net.parameters(), lr=1e-3)
 

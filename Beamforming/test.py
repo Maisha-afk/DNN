@@ -8,7 +8,13 @@ from model import MaskNet
 from metric import snr_db, mse_db, stoi_score, pesq_score
 from stft_and_isft import SR
 # e.g. first 10 test pairs
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+if torch.cuda.is_available():
+    device = torch.device("cuda:0")
+    print("Device: cuda:0")
+    print("GPU:", torch.cuda.get_device_name(0))
+else:
+    device = torch.device("cpu")
+    print("Device: cpu")
 net = MaskNet().to(device)
 
 ckpt_path = "checkpoints/model.pt"
